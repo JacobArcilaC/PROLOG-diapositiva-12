@@ -1,0 +1,38 @@
+#Operaciones con listas
+cosas = ["Nevera", 65000, "TV", 95000, "Playstation", False]
+edades = [25,45,64,89,25,45,78]
+panagrama = """José compró una vieja zampoña en Perú.
+Excusádose, Sofía tiró su whisky al desagüe de la banqueta.
+Sofía rompio la vieja zampoña de José."""
+
+panagrama = panagrama.replace('.','').replace(',','')
+panagrama = panagrama.replace('\n',' ')
+
+palabras = panagrama.split(' ')
+print("\nLas palabras en la lista:", palabras)
+print("La frase tiene: ",len(palabras), "palabras.")
+print("La frecuencia de la palabra 'vieja' es:", palabras.count('vieja'))
+
+#Listas enviadas por referencia
+
+def fnEjemplo2(lstValor, lstReferencia):
+	lstValor = lstValor[:]
+	lstValor[2] = "Fulanita"
+	lstReferencia[2] = "Pedrito"
+
+	return lstValor
+
+if __name__ == '__main__':
+
+	ganadores = ["Lola","Rosa","Raquel","Mauro"]
+	viajeros = ["Pepe","Laura","Ana","Luisa","Yuly"]
+
+	print("Ganadores: \t",ganadores)
+	print("viajeros: \t",viajeros)
+
+	viajerosMod = fnEjemplo2(viajeros,ganadores)
+
+	print("\n-------- Despues de la Funcion --------")
+	print("Ganadores\t",ganadores)
+	print("Viajeros: \t",viajeros)
+	print("Viajeros Mod: \t",viajerosMod)
